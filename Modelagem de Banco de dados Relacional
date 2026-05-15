@@ -23,3 +23,4 @@ CREATE TABLE Pagamentos (
     valor_pagamento FLOAT -- Tipo definido como Float para suportar conversão de decimais
 );
 
+![Diagrama do Banco](./diagramabanco.png)
