@@ -1,7 +1,3 @@
----
-
-### 2. README: Processo de ETL e Tratamento de Erros
-**Sugestão de nome de arquivo:** `02_ETL_e_Tratamento_de_Dados.md`
 
 ```markdown
 # ⚙️ Etapa 2: Pipeline de ETL e Data Cleaning
