@@ -1,0 +1,17 @@
+---
+
+### 2. README: Processo de ETL e Tratamento de Erros
+**Sugestão de nome de arquivo:** `02_ETL_e_Tratamento_de_Dados.md`
+
+```markdown
+# ⚙️ Etapa 2: Pipeline de ETL e Data Cleaning
+
+Dados reais raramente estão prontos para análise. Esta seção documenta os desafios técnicos encontrados ao importar arquivos CSV e como foram resolvidos via T-SQL.
+
+## 🔧 Desafios Resolvidos
+
+### 1. Erro de Truncamento (Mensagem 2628)
+**Problema:** Nomes de cidades ou justificativas maiores que o espaço alocado.
+**Solução:** Alteração dinâmica do schema para suportar textos longos.
+```sql
+ALTER TABLE Viagens ALTER COLUMN Motivo NVARCHAR(MAX);
