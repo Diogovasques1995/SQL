@@ -1,0 +1,22 @@
+### 3. README: Consultas Complexas e CTEs
+**Sugestão de nome de arquivo:** `03_Analises_Complexas.md`
+
+```markdown
+# 🔍 Etapa 3: Consultas Avançadas e Inteligência de Dados
+
+Com os dados limpos, foram desenvolvidas queries para responder perguntas de negócio complexas, utilizando técnicas avançadas de agrupamento e CTEs.
+
+## 📈 Exemplos de Análises
+
+### Common Table Expressions (CTE)
+Utilizadas para calcular médias de gastos por órgão e comparar simultaneamente com gastos individuais, permitindo identificar gastos acima da média.
+
+```sql
+WITH MediaGastos AS (
+    SELECT orgao_solicitante, AVG(valor_total_passagens) as Media_Orgao
+    FROM Viagens
+    GROUP BY orgao_solicitante
+)
+SELECT V.nome_viajante, V.valor_total_passagens, M.Media_Orgao
+FROM Viagens V
+JOIN MediaGastos M ON V.orgao_solicitante = M.orgao_solicitante;
