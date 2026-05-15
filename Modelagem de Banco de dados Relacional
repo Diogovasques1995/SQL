@@ -1,0 +1,25 @@
+# 🏛️ Etapa 1: Modelagem do Banco de Dados Relacional
+
+Nesta etapa, foi estruturado o ambiente de dados para receber as informações do Portal da Transparência. O foco foi garantir a integridade referencial e a tipagem correta para dados governamentais.
+
+## 🗄️ Database: `PortalTransparencia`
+
+Foram criadas quatro tabelas principais para suportar a análise:
+
+* **Viagens:** Tabela mestre contendo o identificador do processo, beneficiário e motivo da viagem.
+* **Pagamentos:** Registros financeiros de cada processo, incluindo diárias e ressarcimentos.
+* **Passagens:** Detalhamento de bilhetes aéreos, trechos e taxas de serviço.
+* **Trechos:** Dados logísticos de origem e destino para cada movimentação.
+
+## 🛠️ Script de Criação (Destaque)
+Abaixo, um exemplo da estrutura da tabela de Pagamentos:
+
+```sql
+CREATE TABLE Pagamentos (
+    id_processo_viagem NVARCHAR(50),
+    num_proposta NVARCHAR(50),
+    cod_orgao_superior INT,
+    nome_orgao_superior NVARCHAR(255),
+    valor_pagamento FLOAT -- Tipo definido como Float para suportar conversão de decimais
+);
+
