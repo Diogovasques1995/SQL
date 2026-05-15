@@ -1,0 +1,23 @@
+### 4. README: Camada de Abstração com Views
+**Sugestão de nome de arquivo:** `04_Abstracao_e_Views.md`
+
+```markdown
+# 🖼️ Etapa 4: Camada de Abstração (Views)
+
+Para facilitar o consumo de dados por ferramentas de BI (Power BI/Tableau) ou analistas de negócio, foram criadas **Views** (Visões).
+
+## 💡 Benefícios Implementados
+* **Segurança:** Ocultação de colunas sensíveis ou desnecessárias.
+* **Performance:** Cálculos de custo total (Diárias + Passagens) já pré-definidos na visão.
+* **Padronização:** Centralização da regra de negócio.
+
+## 🚀 Exemplo de Implementação: `vw_ResumoFinanceiroViagens`
+Esta view consolida os principais indicadores financeiros de cada viagem em uma única tabela virtual:
+
+```sql
+CREATE VIEW vw_ResumoFinanceiroViagens AS
+SELECT 
+    V.nome_viajante,
+    V.orgao_solicitante,
+    (ISNULL(V.valor_total_diarias, 0) + ISNULL(V.valor_total_passagens, 0)) AS Custo_Total_Viagem
+FROM Viagens V;
